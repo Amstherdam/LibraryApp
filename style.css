@@ -1,0 +1,204 @@
+/* rset css */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* reset css end */
+
+html  { 
+    background-color: rgb(173, 171, 171);
+}
+
+
+header { 
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(232, 220, 220);
+    height: 10vh;
+    align-items: center;
+}
+
+header >  h2{ 
+    color: rgb(137, 35, 35);
+    letter-spacing: 2px;
+    font-size: 3vh;
+}
+
+header > button { 
+    font-size: 2.2vh;
+    background-color: rgb(137, 35, 35);
+    color: rgb(232, 220, 220);
+    padding: 5px 15px ;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#content  { 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height:  80vh;
+}
+
+#formDiv { 
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#formDiv > input { 
+    border-radius: 2vw;
+    padding: 10px;
+    border: none;
+}
+
+label > input { 
+    margin-top: 1vh;
+}
+
+legend,
+label,
+label > input { 
+    margin-left: 0.4vw;
+}
+
+#addDiv {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+}
+
+#addBookBtn { 
+    margin-top: 1.2vh;
+    font-size: 4vh;
+    font-weight: 600;
+    background-color: rgb(173, 171, 171);
+    padding: 1.6vh 2.2vw;
+    cursor: pointer;
+    border: 1px solid rgb(173, 171, 171);
+    border-radius: 1.8vw;
+}
+
+#addBookBtn:hover { 
+    background-color: rgb(209, 204, 204);
+    border: 1px solid rgb(143, 141, 141);
+    box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+    -webkit-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+    -moz-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+}
+
+#bookGrid { 
+    margin-top: 2vh;
+    display: grid;
+    width: 80vw;
+    grid-template-columns: auto auto auto auto ;
+    align-items: center;
+}
+
+
+/* modal */
+
+.book {
+    margin-top: 1vh;
+    height: 35vh;
+    width: 15vw;
+    background-color: rgb(243, 235, 235);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* text-transform: uppercase; */
+    border-radius: 4vh;
+    padding: 0px 15px 15px 15px;
+    box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+    -webkit-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+    -moz-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+}
+
+.book > p { 
+    width: 100%;
+    padding-left: 2vw;
+    font-weight: 600;
+}
+
+.outputTitle { 
+    border-radius: 4vh 4vh  0;
+    padding-top: 2vh;
+    display: block;
+    align-content: center;
+    
+}
+
+.book > div { 
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.outputRead,
+.outputRemove { 
+    padding: 1vh 2.2vw;   
+    border: 1px solid rgb(173, 171, 171);
+    border-radius: 1vh;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.outputRead { 
+    background-color: rgb(137, 245, 137);
+}
+
+.outputRemove { 
+    background-color: rgb(250, 123, 123);
+}
+
+
+
+
