@@ -7,14 +7,8 @@ const libraryArea = document.querySelector('#bookGrid');
 const readBtn = document.querySelectorAll('.outputRead');
 const removeBtn = document.querySelector('.outputRemove');
 
-/*  They will creating */
 
 
-
-
-
-
-/*  */
 let myLibrary = [];
 
 function Book(title, author, page, read) { 
@@ -30,8 +24,9 @@ function addBookToLibrary() {
     return denem
 }
 
-
 function createItem() { 
+
+    /* Create Book Card Elements */
 
     let bookDiv = document.createElement('div');
     bookDiv.classList.add('book');
@@ -68,31 +63,56 @@ function createItem() {
     outputRemoveBtn.innerHTML = 'Remove';
     outputRemoveBtn.classList.add('outputRemove');
     bookInsideDiv.appendChild(outputRemoveBtn)
+
+    /* Book Card Buttons Have Event */
+
+    outputReadBtn.addEventListener('click', () => { 
+        if( isRead.checked == true) { 
+            isReadP.innerHTML = ` READ: Not read yet 😐`;
+            isRead.checked = false;
+        }
+        else if ( isRead.checked == false){ 
+            isReadP.innerHTML = ` READ: Read 😊`;
+            isRead.checked = true;
+            outputReadBtn.style.backgroundColor = 'red'
+        }
+    });
+
+    outputRemoveBtn.addEventListener('click', () => { 
+        outputReadBtn.parentElement.parentElement.remove();
+    });
 }
 
+/*  add to the form reset */
 
+function resetForm () { 
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
+    isRead.checked = false;
+}
 
+/* +Add Book button event */
 
-
-addBookBtn.addEventListener('click', () => { 
-   
+addBookBtn.addEventListener('click', (e) => { 
+   e.preventDefault();
    addBookToLibrary();
-   createItem();
-
-    
-
+   
+   if( 
+    bookTitle.value.length > 0 &&
+    bookAuthor.value.length > 0 &&
+    Number (bookPages.value) > 0
+   ) { 
+    createItem()
+    resetForm();
+   }
+   else { 
+    console.log('denem')
+   }
+   
+   console.log(myLibrary)
 })
 
-outputReadBtn.addEventListener('click', () => { 
-    if( isRead.checked == true) { 
-        isReadP.innerHTML = ` READ: Not read yet 😐`;
-        isRead.checked == false;
-    }
-    else if ( isRead.checked == false){ 
-        isReadP.innerHTML = ` READ: Read 😊`;
-        isRead.checked == true;
-    }
-});
 
 
 
