@@ -19,10 +19,16 @@ function Book(title, author, page, read) {
 }
 
 function addBookToLibrary() { 
-    const denem = new Book( bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked)
-    myLibrary.push(denem);
-    return denem
+    const createLibraryItem = new Book( bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked)
+    myLibrary.push(createLibraryItem);
+    return createLibraryItem
 }
+
+/* check title in the array  */
+
+
+
+
 
 function createItem() { 
 
@@ -55,7 +61,9 @@ function createItem() {
     bookDiv.appendChild(bookInsideDiv);
 
     const outputReadBtn = document.createElement('button');
-    outputReadBtn.innerHTML = 'Read';
+    outputReadBtn.innerHTML = ' Change to Read';
+    outputReadBtn.style.backgroundColor = '#4ACCF5'
+    
     outputReadBtn.classList.add('outputRead');
     bookInsideDiv.appendChild(outputReadBtn);
 
@@ -68,13 +76,12 @@ function createItem() {
 
     outputReadBtn.addEventListener('click', () => { 
         if( isRead.checked == true) { 
-            isReadP.innerHTML = ` READ: Not read yet 😐`;
+            isReadP.innerHTML = ` Read: Not read yet 😐`;
             isRead.checked = false;
         }
         else if ( isRead.checked == false){ 
-            isReadP.innerHTML = ` READ: Read 😊`;
+            isReadP.innerHTML = ` Read: Read 😊`;
             isRead.checked = true;
-            outputReadBtn.style.backgroundColor = 'red'
         }
     });
 
@@ -82,6 +89,11 @@ function createItem() {
         outputReadBtn.parentElement.parentElement.remove();
     });
 }
+
+
+
+
+
 
 /*  add to the form reset */
 
@@ -94,25 +106,40 @@ function resetForm () {
 
 /* +Add Book button event */
 
-addBookBtn.addEventListener('click', (e) => { 
-   e.preventDefault();
-   addBookToLibrary();
-   
-   if( 
-    bookTitle.value.length > 0 &&
-    bookAuthor.value.length > 0 &&
-    Number (bookPages.value) > 0
-   ) { 
-    createItem()
-    resetForm();
-   }
-   else { 
-    console.log('denem')
-   }
-   
-   console.log(myLibrary)
-})
+/*!!!!!!!!!!!!!!!!!!  Hata Var  !!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
+/* function checkTitleInLibrary() { 
+
+    if(myLibrary.length > 0) { 
+        for ( let item of myLibrary) { 
+
+            if( item.title == bookTitle.value) {  
+             return false
+            } else {
+                addBookToLibrary()
+                return true
+            }
+     }
+}}; */
+
+
+addBookBtn.addEventListener('click', (e) => { 
+    e.preventDefault();
+
+    if( 
+        bookTitle.value.length > 0 &&
+        bookAuthor.value.length > 0 &&
+        Number (bookPages.value) > 0
+    ) { 
+        createItem();
+        resetForm();
+    } else { 
+        alert('hata var')
+    }
+   
+   
+
+})
 
 
 

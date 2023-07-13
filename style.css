@@ -50,16 +50,34 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input:focus { 
+    outline: none;
+    box-shadow: 0px 4px 12px rgba(241,239,239);
+}
+
+input::placeholder { 
+    letter-spacing: 1.6px;
+}
+
 /* reset css end */
+
+
+
+
+
+
 
 html  { 
     background-color: rgb(173, 171, 171);
 }
 
+body {
+    font-family: 'Spectral', serif;
+}
 
 header { 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgb(232, 220, 220);
     height: 10vh;
     align-items: center;
@@ -68,7 +86,9 @@ header {
 header >  h2{ 
     color: rgb(137, 35, 35);
     letter-spacing: 2px;
-    font-size: 3vh;
+    font-size: 4.5vh;
+    margin-left: 5vw;
+    cursor:context-menu;
 }
 
 header > button { 
@@ -78,6 +98,7 @@ header > button {
     padding: 5px 15px ;
     border-radius: 15px;
     cursor: pointer;
+    margin-right: 2.5vw;
 }
 
 #content  { 
@@ -98,6 +119,8 @@ header > button {
     border-radius: 2vw;
     padding: 10px;
     border: none;
+    font-size: 18px;
+    letter-spacing: 0.35px;
 }
 
 label > input { 
@@ -143,43 +166,63 @@ label > input {
 }
 
 
+
+
 /* modal */
+
 
 .book {
     margin-top: 1vh;
-    height: 35vh;
+    height: 38vh;
     width: 15vw;
     background-color: rgb(243, 235, 235);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    /* text-transform: uppercase; */
+    position: relative;
     border-radius: 4vh;
+
     padding: 0px 15px 15px 15px;
     box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
-    -webkit-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+    -webkit-box-shadow: 0px 12px 50px 15px rgba(241,239,239,0.7);
     -moz-box-shadow: -1px 2px 107px 45px rgba(241,239,239,0.54);
+}
+
+.book:nth-child(n+5) { 
+    margin-top: 4.5vh;
 }
 
 .book > p { 
     width: 100%;
     padding-left: 2vw;
     font-weight: 600;
+    font-size: 20px;
+    overflow: hidden;
+    line-height: 30px;
+}
+
+.book >p:nth-child(2),
+.book >p:nth-child(3),
+.book >p:nth-child(4) { 
+    margin-top: 3vh;
 }
 
 .outputTitle { 
     border-radius: 4vh 4vh  0;
     padding-top: 2vh;
     display: block;
-    align-content: center;
-    
+    align-content: center;  
 }
 
 .book > div { 
+    position: absolute;
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-evenly;
+    bottom: 5%;
+    right: -5%;
 }
 
 .outputRead,
@@ -189,16 +232,29 @@ label > input {
     border-radius: 1vh;
     text-transform: uppercase;
     cursor: pointer;
+    letter-spacing: 1.1px;
+    width: 90%;
 }
 
 .outputRead { 
-    background-color: rgb(137, 245, 137);
+    background-color: #4ACCF5;
+    margin-bottom: 2vh;
+    box-shadow: 0px 3px 8px #34caf7 ;
+    margin-top: 2vh;
+}
+
+.outputRead:hover {
+    box-shadow: 0px 3px 8px rgb(28, 124, 153) ;
 }
 
 .outputRemove { 
-    background-color: rgb(250, 123, 123);
+    background-color: rgb(255, 144, 144);
+    box-shadow: 0px 2px 6px rgb(247, 126, 126) ;
 }
 
+.outputRemove:hover { 
+    box-shadow: 0px 2px 6px rgb(184, 74, 74) ;
+}
 
 
 
