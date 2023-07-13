@@ -19,7 +19,8 @@ function Book(title, author, page, read) {
 }
 
 function addBookToLibrary() { 
-    const createLibraryItem = new Book( bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked)
+
+    let createLibraryItem = new Book( bookTitle.value, bookAuthor.value, bookPages.value, isRead.checked);
     myLibrary.push(createLibraryItem);
     return createLibraryItem
 }
@@ -33,6 +34,14 @@ function addBookToLibrary() {
 function createItem() { 
 
     /* Create Book Card Elements */
+
+    // alper: Kitap varsa listeye eklemeyecek.
+    // alper: Kitap ismine göre bakıyor.
+    let isThereBook = myLibrary.find(p => p.title === bookTitle.value);
+    if(isThereBook != undefined) {
+        alert('Bu kitap var')
+        return
+    }
 
     let bookDiv = document.createElement('div');
     bookDiv.classList.add('book');
@@ -87,6 +96,9 @@ function createItem() {
 
     outputRemoveBtn.addEventListener('click', () => { 
         outputReadBtn.parentElement.parentElement.remove();
+        // alper: Remove edilen kitabı listeden çıkarman lazım.
+        // alper: Remove edeceğin kitabın ismini bir şekilde elde etmen lazım burada.
+        // alper: Buna göre listeden çıkaracağız
     });
 }
 
@@ -131,7 +143,11 @@ addBookBtn.addEventListener('click', (e) => {
         bookAuthor.value.length > 0 &&
         Number (bookPages.value) > 0
     ) { 
+        // alper: Burada createItem fonksiyonu daha önce çağıralarak kitap var mı diye kontrol ediyoruz.
+        // alper: addBookToLibrary fonksiyonunu çağırdım burda. Bunu eklememişsin abi.
+        // alper: O yüzden listeye eleman eklememiş. 
         createItem();
+        addBookToLibrary();
         resetForm();
     } else { 
         alert('hata var')
@@ -140,7 +156,3 @@ addBookBtn.addEventListener('click', (e) => {
    
 
 })
-
-
-
-
