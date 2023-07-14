@@ -24,13 +24,22 @@ function addBookToLibrary() {
     return createLibraryItem
 }
 
-/* check title in the array  */
 
 
 
 
 
 function createItem() { 
+
+    /* check title in the array  */
+
+    let isThereBook = myLibrary.find(searchTitle => searchTitle.title === bookTitle.value);
+    if (isThereBook != undefined) { 
+        alert('Likely card')
+        return
+    }
+
+    
 
     /* Create Book Card Elements */
 
@@ -86,7 +95,15 @@ function createItem() {
     });
 
     outputRemoveBtn.addEventListener('click', () => { 
+        
+        let pureBookTitle = outputRemoveBtn.parentElement.parentElement.firstChild.innerHTML.slice(9);
+        let deleteMyListItem = myLibrary.find( p => p.title === pureBookTitle)
+        myLibrary = myLibrary.filter( item => item !== deleteMyListItem);
+        
         outputReadBtn.parentElement.parentElement.remove();
+        console.log(myLibrary)
+
+
     });
 }
 
@@ -104,23 +121,7 @@ function resetForm () {
     isRead.checked = false;
 }
 
-/* +Add Book button event */
 
-/*!!!!!!!!!!!!!!!!!!  Hata Var  !!!!!!!!!!!!!!!!!!!!!!!!!!! */
-
-/* function checkTitleInLibrary() { 
-
-    if(myLibrary.length > 0) { 
-        for ( let item of myLibrary) { 
-
-            if( item.title == bookTitle.value) {  
-             return false
-            } else {
-                addBookToLibrary()
-                return true
-            }
-     }
-}}; */
 
 
 addBookBtn.addEventListener('click', (e) => { 
@@ -132,12 +133,13 @@ addBookBtn.addEventListener('click', (e) => {
         Number (bookPages.value) > 0
     ) { 
         createItem();
+        addBookToLibrary();
         resetForm();
     } else { 
         alert('hata var')
     }
    
-   
+
 
 })
 
